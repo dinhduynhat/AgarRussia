@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         AgarRussia
-// @namespace    http://tankichat.ru/
+// @namespace    none
 // @version      1.0
 // @description  AgarRussia
 // @author       DimaRRR
