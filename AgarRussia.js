@@ -17,7 +17,7 @@ function getCurrentVersion() {
     }).done(function(io) {
         var io = io.split("_");
         if (io[0] != version) {
-            $('#mainPanel').html('<h3>Новое обновление!</h3><br>Внимание!<br>Вышло новое обновление расширения AgarRussia!<br>Загрузить обновление можно перейдя по ссылке: ' + io[1]);
+            $('#mainPanel').html('<h3>Новое обновление!</h3><br>Внимание!<br>Вышло новое обновление расширения AgarRussia!<br>Загрузить обновление можно перейдя по ссылке: <a href="' + io[1] + '">AgarRussia.JS</a>');
         }
     });
 }
