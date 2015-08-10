@@ -8,6 +8,21 @@
 // @grant        none
 // ==/UserScript==
 
+var version = "1.0";
+
+function getCurrentVersion() {
+    window.jQuery.ajax({
+        url: "http://agarrussia.pshort.ru/version",
+        cache: false
+    }).done(function(io) {
+        var io = io.split("_");
+        if (io[0] != version) {
+            $('#mainPanel').html('<h3>Новое обновление!</h3><br>Внимание!<br>Вышло новое обновление расширения AgarRussia!<br>Загрузить обновление можно перейдя по ссылке: ' + io[1]);
+        }
+    });
+}
+getCurrentVersion();
+
 $('#overlays').append('<div style="position: absolute;bottom: 0;left: 0;background-color: #FFF;border-radius: 0px 5px 0px 0px;padding: 5px 10px;"><center>AgarRussia</center></div>');
 $('.tosBox').html('<center>AgarRussia</center>');
 $('#adsBottom').html('<div id="adsBottomInner" style="margin: 0px auto;width: 728px;height: 21px;border: 5px solid white;border-radius: 5px 5px 0px 0px;background-color: #FFFFFF;box-sizing: content-box;"><div id="a728x90"><center>Реклама удалена с помощью расширения AgarRussia.</center></div></div>');
@@ -21,5 +36,5 @@ $('#nick').val('AgarRussia');
 $('#gamemode').html('<option selected="" value="" data-itr="gamemode_ffa">Сам за себя</option><option value=":teams" data-itr="gamemode_teams">Командный</option><option value=":experimental" data-itr="gamemode_experimental">Экспериментальный</option><option value=":party" data-itr="party">Вечеринка</option>');
 $('.text-muted').html('<span data-itr="instructions_mouse">Двигайте мышью для управления шариком</span><br><span data-itr="instructions_space">Нажмите <b>ПРОБЕЛ</b> для разделения шарика</span><br><span data-itr="instructions_w">Нажмите <b>W</b> для сброса маленькой части шарика</span><br>');
 $('#agario-main-buttons').html('<button type="button" onclick="$(\'#settings, #instructions\').toggle();return false;" class="btn btn-info btn-settings"><i class="glyphicon glyphicon-cog"></i></button><button type="submit" onclick="setNick(document.getElementById(\'nick\').value); return false;" class="btn btn-play btn-primary btn-needs-server" data-itr="play">Играть</button><button type="submit" onclick="setNick(document.getElementById(\'nick\').value); return false;" class="btn btn-play-guest btn-success btn-needs-server" data-itr="play_as_guest">Играть как гость</button><button onclick="facebookLogin(); return false;" class="btn btn-login btn-primary" style="line-height: 24px;" data-original-title="" title=""><span class="social social-facebook" style="font-size:24px;margin-top:-6px;margin-left:-8px;vertical-align:middle;margin-right:5px;"></span><span data-itr="login_and_play">Войти и играть</span></button><br clear="both">');
-$('.agario-promo').css('background-image','url()');
+$('.agario-promo').css('background-image', 'url()');
 $('.agario-promo').html('<div class="agario-panel agario-side-panel"><div class="clearfix" style="margin-bottom: 16px;"><center><span class="text-muted">Разработчик данного расширения: DimaRRR.</span></center></div>');
