@@ -1,23 +1,25 @@
 // ==UserScript==
 // @name         AgarRussia
 // @namespace    none
-// @version      1.0
+// @version      1.1
 // @description  AgarRussia
 // @author       DimaRRR
 // @match        http://agar.io/*
 // @grant        none
 // ==/UserScript==
 
-var version = "1.0";
+var version = "1.1";
 
 function getCurrentVersion() {
     window.jQuery.ajax({
-        url: "http://agarrussia.pshort.ru/version",
-        cache: false
-    }).done(function(io) {
-        var io = io.split("_");
-        if (io[0] != version) {
-            $('#mainPanel').html('<h3>Новое обновление!</h3><br>Внимание!<br>Вышло новое обновление расширения AgarRussia!<br>Загрузить обновление можно перейдя по ссылке: <a href="' + io[1] + '">AgarRussia.JS</a>');
+        url: "http://pshort.ru/agarrussia",
+        cache: false,
+        dataType: "jsonp"
+    }).done(function(data) {
+        currentVer = data["data"]["ver"];
+		urlUpdate = data["data"]["url"];
+        if (currentVer != version) {
+            $('#mainPanel').html('<h3>Новое обновление!</h3><br>Внимание!<br>Вышло новое обновление расширения AgarRussia!<br>Загрузить обновление можно перейдя по ссылке: <a href="' + urlUpdate + '">AgarRussia.JS</a>');
         }
     });
 }
