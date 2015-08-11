@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         AgarRussia
 // @namespace    none
-// @version      1.1
+// @version      1.0
 // @description  AgarRussia
 // @author       DimaRRR
 // @match        http://agar.io/*
 // @grant        none
 // ==/UserScript==
 
-var version = "1.1";
+var version = "1.0";
 
 function getCurrentVersion() {
     window.jQuery.ajax({
