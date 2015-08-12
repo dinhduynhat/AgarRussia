@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         AgarRussia 1.3
+// @name         AgarRussia
 // @namespace    none
 // @version      1.3
-// @description  AgarRussia 1.3
+// @description  AgarRussia
 // @author       DimaRRR
 // @match        http://agar.io/*
 // @grant        none
