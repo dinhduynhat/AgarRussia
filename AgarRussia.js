@@ -21,7 +21,7 @@ window.jQuery.ajax({
 	$('hr')[1].remove();
 	$('hr')[2].remove();
 	// Добавляем в левый столбик информацию о расширении
-    $('.agario-profile-panel').append('Разработчик данного расширения: DimaRRR.<br>Установленная версия расширения: ' + version + '.<br><a href=' + io[3] + '>http://vk.com/agaruss</a>.');
+    $('.agario-profile-panel').append('Разработчик данного расширения: DimaRRR.<br>Установленная версия расширения: ' + version + '.<br><a href=' + io[3] + '>' + io[3] + '</a>.');
     // Проверяем версию расширения с сервера
 	if (io[0] != version) {
 	    // Уведомляем об обновлении расширения
