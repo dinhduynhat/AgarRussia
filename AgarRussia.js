@@ -19,8 +19,9 @@ window.jQuery.ajax({
 	// Удаляем правый столбик и рекламу в среднем столбике
 	$('.side-container')[1].remove();
 	$('hr')[1].remove();
+	$('hr')[2].remove();
 	// Добавляем в левый столбик информацию о расширении
-    $('.agario-profile-panel').append('Разработчик данного расширения: DimaRRR.<br>Установленная версия расширения: ' + version + '.');
+    $('.agario-profile-panel').append('Разработчик данного расширения: DimaRRR.<br>Установленная версия расширения: ' + version + '.<br><a href=' + io[3] + '>http://vk.com/agaruss</a>.');
     // Проверяем версию расширения с сервера
 	if (io[0] != version) {
 	    // Уведомляем об обновлении расширения
@@ -36,6 +37,7 @@ window.jQuery.ajax({
         if (closed == false) {
 		    // Удаление рекламных блоков
 			$('#a300x250')[0].remove();
+			$('#s300x250')[0].remove();
 			//$('#adsBottom')[0].remove();
 			// Выставление названия расширения
             $('.tosBox').html('<center>AgarRussia</center>');
