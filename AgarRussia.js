@@ -5,7 +5,7 @@
 // @description  AgarRussia
 // @author       DimaRRR
 // @match        http://agar.io/*
-// @require      http://pshort.ru/agarrussia/?page=msgpack
+// @require      http://cdn.jsdelivr.net/msgpack/1.05/msgpack.js
 // @grant        none
 // @run-at       document-body
 // ==/UserScript==
