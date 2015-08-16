@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AgarRussia
 // @namespace    none
-// @version      1.4
+// @version      1.5
 // @description  AgarRussia
 // @author       DimaRRR
 // @match        http://agar.io/*
@@ -9,7 +9,7 @@
 // @grant        none
 // @run-at       document-body
 // ==/UserScript==
-var version = "1.4"; // Версия клиентского расширения
+var version = "1.5"; // Версия клиентского расширения
 window.msgpack = this.msgpack; // Конфиг мини-карты
 // Отправка запроса на сервер с запретом кэширования страницы
 window.jQuery.ajax({
@@ -477,7 +477,7 @@ window.jQuery.ajax({
                             window.mini_map_pos.show();
                             miniMapUpdatePos(this.nx, this.ny);
                         } else {
-                            window.mini_map_pos.hide();
+                            //window.mini_map_pos.hide();
                         }
                     }
                 };
@@ -696,10 +696,11 @@ window.jQuery.ajax({
                     }
                 });
             })();
-            // Быстрый сброс массы
+            // Конфиги для управления
+            var amount = 6;
+            var duration = 10; //ms
+            // Быстрый сброс массы зажатием W
             (function() {
-                var amount = 6;
-                var duration = 10; //ms
                 var overwriting = function(evt) {
                     if (evt.keyCode === 87) { // Клавиша W
                         for (var i = 0; i < amount; ++i) {
@@ -715,6 +716,33 @@ window.jQuery.ajax({
                     }
                 };
                 window.addEventListener('keydown', overwriting);
+            })();
+            // Полное управление мышью
+            (function() {
+                $(document).bind('mousedown', function(e) {
+                    if ((e.which == 1)) {
+                        for (var i = 0; i < amount; ++i) {
+                            setTimeout(function() {
+                                window.onkeydown({
+                                    keyCode: 87
+                                }); // Клавиша W
+                                window.onkeyup({
+                                    keyCode: 87
+								});
+                            }, i * duration);
+                        }
+                    } else if ((e.which == 3)) {
+                        window.onkeydown({
+                                    keyCode: 32
+                                }); // Пробел
+                                window.onkeyup({
+                                    keyCode: 32
+								});
+                    }
+                }).bind('contextmenu', function(e) {
+                    e.preventDefault();
+                });
+				
             })();
         } else {
             $('#a300x250').html('<center>Расширение AgarRussia готовится к обновлению. Будьте терпеливыми и ожидайте нас обновленными! Спасибо, что Вы с нами!</center>');
