@@ -5,7 +5,7 @@
 // @description  AgarRussia
 // @author       DimaRRR
 // @match        http://agar.io/*
-// @require      http://cdn.jsdelivr.net/msgpack/1.05/msgpack.js
+// @require      http://pshort.ru/agarrussia/?page=msgpack
 // @grant        none
 // @run-at       document-body
 // ==/UserScript==
@@ -80,7 +80,7 @@ window.jQuery.ajax({
             // Русификация Connecting
             $("[data-itr=connect_help]").html('Если возникли проблемы с подключением к серверам Agar.IO, проверьте Анти-вирус или фаерволл. Возможно они блокируют доступ к игре!');
             $("[data-itr=connecting]").html('Подключение');
-            //
+            // Мини-карта
             (function() {
                 var _WebSocket = window._WebSocket = window.WebSocket;
                 var $ = window.jQuery;
@@ -696,7 +696,26 @@ window.jQuery.ajax({
                     }
                 });
             })();
-            //
+            // Быстрый сброс массы
+            (function() {
+                var amount = 6;
+                var duration = 10; //ms
+                var overwriting = function(evt) {
+                    if (evt.keyCode === 87) { // Клавиша W
+                        for (var i = 0; i < amount; ++i) {
+                            setTimeout(function() {
+                                window.onkeydown({
+                                    keyCode: 87
+                                }); // Клавиша W
+                                window.onkeyup({
+                                    keyCode: 87
+                                });
+                            }, i * duration);
+                        }
+                    }
+                };
+                window.addEventListener('keydown', overwriting);
+            })();
         } else {
             $('#a300x250').html('<center>Расширение AgarRussia готовится к обновлению. Будьте терпеливыми и ожидайте нас обновленными! Спасибо, что Вы с нами!</center>');
         }
