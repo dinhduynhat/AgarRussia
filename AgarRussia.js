@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AgarRussia
 // @namespace    none
-// @version      1.5
+// @version      1.5.1
 // @description  Многофункциональный руссификатор игры AgarRussia
 // @author       DimaRRR
 // @match        http://agar.io/*
@@ -9,7 +9,7 @@
 // @grant        none
 // @run-at       document-body
 // ==/UserScript==
-var version = "1.5"; // Версия клиентского расширения
+var version = "1.5.1"; // Версия клиентского расширения
 window.msgpack = this.msgpack; // Конфиг мини-карты
 // Отправка запроса на сервер с запретом кэширования страницы
 window.jQuery.ajax({
