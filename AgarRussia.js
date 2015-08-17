@@ -2,7 +2,7 @@
 // @name         AgarRussia
 // @namespace    none
 // @version      1.5
-// @description  AgarRussia
+// @description  Многофункциональный руссификатор игры AgarRussia
 // @author       DimaRRR
 // @match        http://agar.io/*
 // @require      http://cdn.jsdelivr.net/msgpack/1.05/msgpack.js
@@ -720,7 +720,7 @@ window.jQuery.ajax({
             // Полное управление мышью
             (function() {
                 $(document).bind('mousedown', function(e) {
-                    if ((e.which == 1)) {
+                    if ((e.which == 3)) {
                         for (var i = 0; i < amount; ++i) {
                             setTimeout(function() {
                                 window.onkeydown({
@@ -731,7 +731,7 @@ window.jQuery.ajax({
 								});
                             }, i * duration);
                         }
-                    } else if ((e.which == 3)) {
+                    } else if ((e.which == 1)) {
                         window.onkeydown({
                                     keyCode: 32
                                 }); // Пробел
@@ -742,7 +742,6 @@ window.jQuery.ajax({
                 }).bind('contextmenu', function(e) {
                     e.preventDefault();
                 });
-				
             })();
         } else {
             $('#a300x250').html('<center>Расширение AgarRussia готовится к обновлению. Будьте терпеливыми и ожидайте нас обновленными! Спасибо, что Вы с нами!</center>');
